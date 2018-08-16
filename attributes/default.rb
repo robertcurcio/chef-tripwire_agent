@@ -1,4 +1,9 @@
-default['tripwire_agent']['installer'] = nil
+default['tripwire_agent']['installer'] =
+  if node['platform'] == 'windows'
+    'https://your.website.uri/te_agent.msi'
+  else
+    'https://your.website.uri/te_agent.bin'
+  end
 default['tripwire_agent']['tags'] = {}
 default['tripwire_agent']['proxy_hostname'] = nil
 default['tripwire_agent']['proxy_port'] = 1080
